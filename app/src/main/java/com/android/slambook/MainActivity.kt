@@ -11,14 +11,12 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
-import android.widget.RadioButton
 import android.widget.ScrollView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.android.slambook.R.id.sv
 import com.android.slambook.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -33,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var addBtn: Button
     private lateinit var mList: ArrayList<String>
     private lateinit var mRVAdapter:  MCRVAdapter
-    private val zordiac = arrayOf("Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces")
+    private val zordac = arrayOf("Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces")
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,20 +41,20 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val svs = binding.sv
+        val svs = findViewById<ScrollView>(R.id.sv)
         animation = svs.background as AnimationDrawable
-        animation.setEnterFadeDuration(2500)
-        animation.setExitFadeDuration(5000)
-        animation.start()
 
         val slambook = binding.slambook.text
         Log.d("Slam book", "1: $slambook")
 
+        val c1 = binding.c1
+        Log.d("Slam book", "1: $c1")
         val full = binding.full.text
         Log.d("Slam book", "1: $full")
         val name = binding.name
         val names = name.text.clear()
         Log.d("Slam book", "1: $names")
+
 
         val nick = binding.nickname.text
         Log.d("Slam book", "1: $nick")
@@ -64,19 +62,27 @@ class MainActivity : AppCompatActivity() {
         val names1 = name1.text.clear()
         Log.d("Slam book", "1: $names1")
 
+        val c3 = binding.c3
+        Log.d("Slam book", "1: $c3")
         val age = binding.age.text
         Log.d("Slam book", "1: $age")
         val ag = binding.a
         val ae = ag.text.clear()
         Log.d("Slam book", "1: $ae")
 
+
         val gender = binding.gender.text
         Log.d("Slam book", "1: $gender")
-        val fe = findViewById<RadioButton>(R.id.female)
-        val m = findViewById<RadioButton>(R.id.male)
+        val fe = binding.female
+        Log.d("Slam book", "1: $fe")
+        val m = binding.male
+        Log.d("Slam book", "1: $m")
+        //val fe = findViewById<RadioButton>(R.id.female)
+        //val m = findViewById<RadioButton>(R.id.male)
 
         val favs = binding.favs.text
         Log.d("Slam book", "1: $favs")
+
 
         val movie = binding.movie.text
         Log.d("Slam book", "1: $movie")
@@ -84,11 +90,14 @@ class MainActivity : AppCompatActivity() {
         val mv = movies.text.clear()
         Log.d("Slam book", "1: $mv")
 
+        val c7 = binding.c7
+        Log.d("Slam book", "1: $c7")
         val song = binding.song.text
         Log.d("Slam book", "1: $song")
         val s = binding.songs
         val sg = s.text.clear()
         Log.d("Slam book", "1: $sg")
+
 
         val book = binding.book.text
         Log.d("Slam book", "1: $book")
@@ -97,7 +106,9 @@ class MainActivity : AppCompatActivity() {
         Log.d("Slam book", "1: $books")
 
 
-        // Manga and comicsu
+        val c9 = binding.c9
+        Log.d("Slam book", "1: $c9")
+        // Manga and comics
         mRV = findViewById(R.id.idRVItems)
         addEdt = findViewById(R.id.comic)
         addBtn = findViewById(R.id.add1)
@@ -112,14 +123,14 @@ class MainActivity : AppCompatActivity() {
         mRVAdapter.notifyDataSetChanged()
 
         //Zodiac
+        val c5 = binding.c5
+        Log.d("Slam book", "1: $c5")
         val zc = binding.zordiac.text
         Log.d("Slam book", "1: $zc")
         val zSpinner = findViewById<Spinner>(R.id.spinner)
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, zordiac)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, zordac)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
         zSpinner.adapter = adapter
-
         zSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val selected = zSpinner.selectedItem.toString()
@@ -134,17 +145,21 @@ class MainActivity : AppCompatActivity() {
         val op = binding.opinion.text
         Log.d("Slam book", "1: $op")
 
+
         val describe = binding.describe.text
         Log.d("Slam book", "1: $describe")
         val three = binding.yourself
         val words = three.text.clear()
         Log.d("Slam book", "1: $words")
 
+        val c11 = binding.c11
+        Log.d("Slam book", "1: $c11")
         val make = binding.make.text
         Log.d("Slam book", "1: $make")
         val you = binding.smile
         val smile = you.text.clear()
         Log.d("Slam book", "1: $smile")
+
 
         val awesome = binding.supers.text
         Log.d("Slam book", "1: $awesome")
@@ -152,6 +167,8 @@ class MainActivity : AppCompatActivity() {
         val power = supers.text.clear()
         Log.d("Slam book", "1: $power")
 
+        val c13 = binding.c13
+        Log.d("Slam book", "1: $c13")
         val funny = binding.funny.text
         Log.d("Slam book", "1: $funny")
         val way = binding.way
@@ -161,20 +178,25 @@ class MainActivity : AppCompatActivity() {
         val fn = binding.finish.text
         Log.d("Slam book", "1: $fn")
 
+
         val willing = binding.willing.text
         Log.d("Slam book", "1: $willing")
         val to = binding.to
         val dos = to.text.clear()
         Log.d("Slam book", "1: $dos")
 
+        val c16 = binding.c15
+        Log.d("Slam book", "1: $c16")
         val ifs = binding.world.text
         Log.d("Slam book", "1: $ifs")
         val world = binding.end
         val ends = world.text.clear()
         Log.d("Slam book", "1: $ends")
 
-        val submit = findViewById<Button>(R.id.button)
+        //val submit = findViewById<Button>(R.id.button)
 
+        val sub = binding.button
+        Log.d("Slam book", "1: $sub")
     }
 
     // on below line we are creating a

@@ -28,6 +28,12 @@
     <string name="books">Books:</string>
     <string name="manga_comics">Manga/Comics:</string>
     <string name="manga_comic">Manga/Comics:</string>
+    <string name="next">Next\n</string>
+    <string name="lorem_ipsum">lorem ipsum\n</string>
+    <string name="previous">Previous</string>
+    <string name="action_settings">Action Setting</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
     <string-array name="diac">
         <item>Aries</item>
         <item>Taurus</item>
